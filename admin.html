@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - TokoBukuX</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <h2>🧑‍💼 Admin Panel</h2>
+</header>
+
+<section class="admin-form">
+    <h3>Tambah Buku</h3>
+
+    <input type="text" id="title" placeholder="Judul Buku">
+    <input type="number" id="price" placeholder="Harga Buku">
+    <input type="text" id="image" placeholder="Link Gambar">
+
+    <button onclick="addBook()">Tambah Buku</button>
+</section>
+
+<section class="admin-list">
+    <h3>Data Buku</h3>
+    <div id="adminBookList"></div>
+</section>
+
+<script src="admin.js"></script>
+</body>
+</html>

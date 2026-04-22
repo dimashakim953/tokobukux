@@ -1,7 +1,8 @@
 /* ================= DATA BUKU =================
-   Simulasi database sederhana (array object)
+   Ambil dari localStorage (jika ada),
+   jika tidak → pakai data default
 */
-const books = [
+let books = JSON.parse(localStorage.getItem("books")) || [
     {
         title: "Laut Bercerita",
         price: 89000,
@@ -27,10 +28,14 @@ const books = [
 /* ================= LOAD BUKU =================
    Fungsi untuk menampilkan buku ke halaman
 */
-function loadBooks() {
+function loadBooks(data = books) {
     const container = document.getElementById("bookList");
 
-    books.forEach(book => {
+    if (!container) return; // keamanan biar tidak error
+
+    container.innerHTML = "";
+
+    data.forEach(book => {
         const card = document.createElement("div");
         card.classList.add("card");
 
@@ -55,28 +60,19 @@ function addToCart(title) {
 /* ================= SEARCH =================
    Filter buku berdasarkan input user
 */
-document.getElementById("search").addEventListener("keyup", function() {
-    const keyword = this.value.toLowerCase();
-    const container = document.getElementById("bookList");
+const searchInput = document.getElementById("search");
 
-    container.innerHTML = "";
+if (searchInput) {
+    searchInput.addEventListener("keyup", function() {
+        const keyword = this.value.toLowerCase();
 
-    books
-        .filter(book => book.title.toLowerCase().includes(keyword))
-        .forEach(book => {
-            const card = document.createElement("div");
-            card.classList.add("card");
+        const result = books.filter(book =>
+            book.title.toLowerCase().includes(keyword)
+        );
 
-            card.innerHTML = `
-                <img src="${book.image}">
-                <h4>${book.title}</h4>
-                <p>Rp ${book.price}</p>
-                <button onclick="addToCart('${book.title}')">Beli</button>
-            `;
-
-            container.appendChild(card);
-        });
-});
+        loadBooks(result);
+    });
+}
 
 /* ================= INIT ================= */
 loadBooks();
