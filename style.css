@@ -1,0 +1,97 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body utama */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f5f5f5;
+    padding: 15px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+/* Search */
+.search-box input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Banner */
+.banner {
+    background: #dbeafe;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 15px 0;
+}
+
+.banner button {
+    background: blue;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* Kategori */
+.kategori-list {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.kategori-list div {
+    background: #e5e7eb;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Buku */
+.buku-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.card {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.card button {
+    width: 100%;
+    margin-top: 5px;
+    background: white;
+    border: 1px solid blue;
+    color: blue;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+}
